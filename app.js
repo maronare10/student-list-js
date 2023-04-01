@@ -1,6 +1,10 @@
 let students = []
 
-renderStudents = (students) => {
+const removeStudent = (id)  => { console.log(id) }
+
+const updateStudent = (id) => { console.log(id) }
+
+const renderStudents = (students) => {
   const studentList = document.querySelector('#studentList')
 
   let elements = ''
@@ -12,8 +16,8 @@ renderStudents = (students) => {
     <div class="student_name" >${student.name}</div>
     <div class="student_city" >${student.city}</div>
     <div class="student_buttons">
-      <button>✏️</button>
-      <button>❌</button>
+      <button onclick="updateStudent('${student.id}')">✏️</button>
+      <button onclick="removeStudent('${student.id}')">❌</button>
     </div>
   </div> 
   `
