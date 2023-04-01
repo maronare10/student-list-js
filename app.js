@@ -1,8 +1,20 @@
 let students = []
 
-const removeStudent = (id)  => { console.log(id) }
+const updateStudent = (id) => {
+  const student = students.find(student => student.id === id)
+  const form = document.forms['studentForm']
 
-const updateStudent = (id) => { console.log(id) }
+  form.name.value = student.name 
+  form.city.value = student.city
+
+  const indexStudent = students.findIndex(student => student.id === id)
+  students.splice(indexStudent, 1)
+
+  renderStudents(students)
+
+}
+
+const removeStudent = (id)  => { console.log(id) }
 
 const renderStudents = (students) => {
   const studentList = document.querySelector('#studentList')
