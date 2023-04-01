@@ -14,12 +14,29 @@ const updateStudent = (id) => {
 
 }
 
-const removeStudent = (id)  => { console.log(id) }
+const removeStudent = (id)  => {
+  const indexStudent = students.findIndex(student => student.id === id)
+
+  if (indexStudent === -1) {
+    console.log('student not fount')
+    return
+  }
+
+  students.splice(indexStudent, 1)
+
+  renderStudents(students)
+
+ }
 
 const renderStudents = (students) => {
   const studentList = document.querySelector('#studentList')
 
   let elements = ''
+
+  if (students.length === 0) {
+    studentsList.innerHTML = 'No hay registros'
+    return
+  }
 
   students.forEach( student => {
     elements +=  `
